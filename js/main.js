@@ -2,9 +2,34 @@ function main() {
     const slider = document.querySelector("input");
     const value = document.querySelector("#value");
     const container = document.querySelector(".right-side");
+    const resetBtn = document.querySelector("#reset-btn");
+    const colorBtns = document.querySelectorAll(".color-btn");
     let count = slider.value;
     const containerHeight = container.clientHeight;
     const containerWidth = container.clientWidth;
+    let colorValue = "black";
+
+    colorBtns.forEach(button => button.addEventListener("click", () => {
+        switch (button.textContent) {
+            case "BLACK":
+                colorValue = "black";
+                break;
+            case "GREY":
+                colorValue = "grey";
+                break;
+            case "RED":
+                colorValue = "red";
+                break;
+            case "GREEN":
+                colorValue = "green";
+                break;
+            case "BLUE":
+                colorValue = "blue";
+                break;
+        }
+    }))
+    
+
 
     for (let index = 0; index < slider.value * slider.value; index++) {
         const boxDiv = document.createElement('div');
@@ -18,7 +43,7 @@ function main() {
     
     const boxDivs = document.querySelectorAll(".pixel");
     boxDivs.forEach(boxDiv => boxDiv.style.height = `${height}px`); 
-    boxDivs.forEach(boxDiv => boxDiv.style.width = `${width}px`); 
+    boxDivs.forEach(boxDiv => boxDiv.style.width = `${width}px`);
 
 
     slider.oninput = () => {
@@ -42,7 +67,27 @@ function main() {
     const boxDivs = document.querySelectorAll(".pixel");
     boxDivs.forEach(boxDiv => boxDiv.style.height = `${height}px`); 
     boxDivs.forEach(boxDiv => boxDiv.style.width = `${width}px`); 
+
+    boxDivs.forEach(boxDiv => boxDiv.addEventListener("mouseover", () => {
+        boxDiv.style.backgroundColor = colorValue;
+
+    
+    }))
+    resetBtn.addEventListener("click", () => {
+        boxDivs.forEach(boxDiv => boxDiv.style.backgroundColor = "white");
+    })
     };
+
+
+    boxDivs.forEach(boxDiv => boxDiv.addEventListener("mouseover", () => {
+        boxDiv.style.backgroundColor = colorValue;
+    }))
+
+    resetBtn.addEventListener("click", () => {
+        boxDivs.forEach(boxDiv => boxDiv.style.backgroundColor = "white");
+    })
+
+    
 
     
 };

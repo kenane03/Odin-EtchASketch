@@ -6,7 +6,7 @@
 }
 
 body {
-    background-color: grey;
+    background-color: #999999;
 }
 
 header {
@@ -14,20 +14,43 @@ header {
     justify-content: center;
     align-items: center;
     padding: 32px;
+    box-shadow: 0 1px 10px;
 }
 
 .wrapper {
-    padding-top: 32px;
+    padding-top: 64px;
     display: flex;
     justify-content: space-evenly;
 }
 
 .left-side {
     height: 600px;
+    padding: 32px;
     display: flex;
     flex-direction: column;
     gap: 16px;
     text-align: center;
+    border: 1px solid black;
+    border-radius: 10px;
+}
+
+
+.left-side h2 {
+    font-size: 2rem;
+    text-decoration: underline;
+}
+
+.left-side button {
+    height: 3rem;
+    font-size: 1.25rem;
+    border-radius: 10px;
+    border: none;
+    background-color: #CCCCCC;
+}
+
+.left-side button:hover {
+    background-color: #808080;
+    color: white;
 }
 
 .right-side {
